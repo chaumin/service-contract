@@ -1,0 +1,51 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "vase",
+            "otherEntityName": "vase",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "product"
+        },
+        {
+            "relationshipName": "contract",
+            "otherEntityName": "contract",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "productType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "commitment",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "device",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serviceId",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20181031085717",
+    "dto": "mapstruct",
+    "searchEngine": false,
+    "service": "serviceImpl",
+    "entityTableName": "product",
+    "jpaMetamodelFiltering": true,
+    "pagination": "pagination"
+}

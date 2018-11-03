@@ -1,5 +1,10 @@
-# ServiceContract
+# Service Contract
 This application was generated using JHipster 5.2.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.2.1](https://www.jhipster.tech/documentation-archive/v5.2.1).
+
+## Technical detail design
+This document provide the detail design for 
+### Requirement
+Please refer to 
 
 ## Development
 

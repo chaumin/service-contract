@@ -16,7 +16,7 @@ import java.sql.SQLException;
 
 @Configuration
 @EnableJpaRepositories("com.chaung.service.contract.repository")
-@EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
+@EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware", dateTimeProviderRef = "zonedDateTimeProvider")
 @EnableTransactionManagement
 public class DatabaseConfiguration {
 
