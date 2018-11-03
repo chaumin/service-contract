@@ -8,6 +8,7 @@ import com.chaung.service.contract.service.dto.VaseDTO;
 import com.chaung.service.contract.service.dto.VaseCriteria;
 import com.chaung.service.contract.service.VaseQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
+import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
