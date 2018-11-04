@@ -171,7 +171,7 @@ Before you can build this project, you must install and configure the following 
 ## How to build and run application
 
 1. Clone project from [https://github.com/chaumin/service-contract](https://github.com/chaumin/service-contract)
-2. Install dependencies for front end part(Each time you change the [package.json](package.json), you should run this command again.
+2. Install dependencies for front end part(Each time you change the [package.json](package.json), you should run this command again).
 ```
     yarn install
 ```
@@ -184,7 +184,7 @@ Before you can build this project, you must install and configure the following 
 1. Access application by access the URL [http://localhost:8080](http://localhost:8080)
 ![](resource/Step1_access_url.png)
 
-2. Login to system using username and password is admin/admin
+2. Login to system with username and password is admin/admin
 ![](resource/Step2_login_menu.png)
 ![](resource/Step3_Enter_Username_password.png)
 
@@ -192,7 +192,7 @@ Before you can build this project, you must install and configure the following 
 
     From the Swagger screen, click on [contract-resource]() and then click on [POST /api/service-contract]().
 ![](resource/Step4_Create_new_contract1.png)
-    Input value for required parameter (json object have been mentioned in API section) or you can click on the [Excempla value](), system will automatically genrate the example json for you. 
+    Input value for required parameter (json object have been mentioned in API section) or you can click on the [Example value](), system will automatically genrate the example json for you. 
     
     Click on [Try it out!]() to send request
 ![](resource/Step4_Create_new_contract2.png) 
