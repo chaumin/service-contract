@@ -167,17 +167,47 @@ Before you can build this project, you must install and configure the following 
    Depending on your system, you can install Yarn either from source or as a pre-packaged bundle.
 3. Jdk 1.8.x
 4. Maven with latest version
-5. Clone project from [https://github.com/chaumin/service-contract](https://github.com/chaumin/service-contract)
 
-After installing Node, you should be able to run the following command to install development tools.
-You will only need to run this command when dependencies change in [package.json](package.json).
+## How to build and run application
 
+1. Clone project from [https://github.com/chaumin/service-contract](https://github.com/chaumin/service-contract)
+2. Install dependencies for front end part(Each time you change the [package.json](package.json), you should run this command again.
+```
     yarn install
-
-Run the following commands in two separate terminals to create a blissful development experience where your browser
-auto-refreshes when files change on your hard drive.
-
+```
+3. Build and start server for backend part.
+```
     ./mvnw
-    yarn start
+```
 
-After server up, asscess application by [http://localhost:8080](http://localhost:8080)
+## How to use application
+1. Access application by access the URL [http://localhost:8080](http://localhost:8080)
+![](resource/Step1_access_url.png)
+
+2. Login to system using username and password is admin/admin
+![](resource/Step2_login_menu.png)
+![](resource/Step3_Enter_Username_password.png)
+
+3. Create a Contract, you can use Postman or Swagger provided by system. To access swagger, click on [Administration]() menu, and then select [API]().
+
+    From the Swagger screen, click on [contract-resource]() and then click on [POST /api/service-contract]().
+![](resource/Step4_Create_new_contract1.png)
+    Input value for required parameter (json object have been mentioned in API section) or you can click on the [Excempla value](), system will automatically genrate the example json for you. 
+    
+    Click on [Try it out!]() to send request
+![](resource/Step4_Create_new_contract2.png) 
+
+4. Search contract
+    Click on [Service Contract]() menu and then [Search]()
+![](resource/Step5_Find_contract.png)
+
+5. Download Contract
+    
+    From Search Contract result, click on download to open the Contract in a new tab with PDF format, from there you can view or download to your local maachine
+
+6. How to access H2 database
+
+    Click on [Administraction]() menu and then [Database](), system will open new tab, from there you can doing the query.
+![](resource/Step6_Access_DB.png)
+    Click [Connect]() to connect to DB (no need to input password)
+![](resource/Step6_Access_DB2.png)    
