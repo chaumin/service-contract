@@ -161,13 +161,13 @@ Get the list of contracts for a customer based on the customer id
 
 Before you can build this project, you must install and configure the following dependencies on your machine:
 
-1. [Node.js][]: We use Node to run a development web server and build the project.
+1. [Node.js](https://nodejs.org): We use Node to run a development web server and build the project.
    Depending on your system, you can install Node either from source or as a pre-packaged bundle.
-2. [Yarn][]: We use Yarn to manage Node dependencies.
+2. [Yarn](https://yarnpkg.com): We use Yarn to manage Node dependencies.
    Depending on your system, you can install Yarn either from source or as a pre-packaged bundle.
 3. Jdk 1.8.x
-4. Maven with latest verson
-5. Clone project from [https://github.com/chaumin/service-contract]
+4. Maven with latest version
+5. Clone project from [https://github.com/chaumin/service-contract](https://github.com/chaumin/service-contract)
 
 After installing Node, you should be able to run the following command to install development tools.
 You will only need to run this command when dependencies change in [package.json](package.json).
@@ -180,4 +180,4 @@ auto-refreshes when files change on your hard drive.
     ./mvnw
     yarn start
 
-After server up, asscess application by [http://localhost:8080]
+After server up, asscess application by [http://localhost:8080](http://localhost:8080)
