@@ -12,6 +12,7 @@ import com.chaung.service.contract.web.rest.errors.*;
 import com.chaung.service.contract.web.rest.vm.KeyAndPasswordVM;
 import com.chaung.service.contract.web.rest.vm.ManagedUserVM;
 
+import io.swagger.annotations.Api;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +29,7 @@ import java.util.*;
  */
 @RestController
 @RequestMapping("/api")
+@Api(hidden = true)
 public class AccountResource {
 
     private final Logger log = LoggerFactory.getLogger(AccountResource.class);

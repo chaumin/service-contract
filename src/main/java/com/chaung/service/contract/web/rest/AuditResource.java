@@ -4,6 +4,7 @@ import com.chaung.service.contract.service.AuditEventService;
 import com.chaung.service.contract.web.rest.util.PaginationUtil;
 
 import io.github.jhipster.web.util.ResponseUtil;
+import io.swagger.annotations.Api;
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/management/audits")
+@Api(hidden = true)
 public class AuditResource {
 
     private final AuditEventService auditEventService;

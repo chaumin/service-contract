@@ -3,6 +3,7 @@ package com.chaung.service.contract.service.file;
 import com.chaung.service.contract.domain.Contract;
 import com.chaung.service.contract.service.dto.BasketDTO;
 import com.chaung.service.contract.service.dto.ContractProductDTO;
+import com.chaung.service.contract.service.dto.ContractVaseDTO;
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -31,45 +32,63 @@ public class ServiceContractGenerator {
             return null;
         }
 
-        Document document = new Document(PageSize.A4, 20, 20, 20, 20);
+        Document document = new Document(PageSize.A4, 30, 30, 30, 30);
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
         try {
 
-            PdfPTable table = new PdfPTable(6);
-            table.setWidthPercentage(100);
-            table.setWidths(new int[]{1, 1, 2, 2, 2, 2});
+            PdfPTable productDetailsTable = new PdfPTable(6);
+            productDetailsTable.setWidthPercentage(100);
+            productDetailsTable.setWidths(new int[]{1, 1, 2, 2, 2, 2});
+
 
             Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
 
-            setTableHeader(table,"Product", headFont);
-            setTableHeader(table,"Service Id", headFont);
-            setTableHeader(table,"Commitment", headFont);
-            setTableHeader(table,"Service name", headFont);
-            setTableHeader(table,"Device", headFont);
-            setTableHeader(table,"Price per month", headFont);
+            setTableHeader(productDetailsTable,"Product", headFont);
+            setTableHeader(productDetailsTable,"Service Id", headFont);
+            setTableHeader(productDetailsTable,"Commitment", headFont);
+            setTableHeader(productDetailsTable,"Service name", headFont);
+            setTableHeader(productDetailsTable,"Device", headFont);
+            setTableHeader(productDetailsTable,"Price per month", headFont);
+
+            PdfPTable addedServiceTable = new PdfPTable(2);
+            addedServiceTable.setWidthPercentage(50);
+            addedServiceTable.setWidths(new int[]{3, 7});
+            setTableHeader(addedServiceTable,"Service ID", headFont);
+            setTableHeader(addedServiceTable,"VAS name", headFont);
+            Boolean hasVasService = Boolean.FALSE;
 
 
 
             Set<ContractProductDTO> products = basketDTO.getProducts();
             if (products.size() > 0) {
                 products.stream().forEach(contractProductDTO -> {
-                    setTableRowCell(table, contractProductDTO.getProductType());
-                    setTableRowCell(table, contractProductDTO.getServiceId());
-                    setTableRowCell(table, "" + contractProductDTO.getCommitment() + " Months");
-                    setTableRowCell(table, contractProductDTO.getName());
-                    setTableRowCell(table, contractProductDTO.getDevice());
-                    setTableRowCell(table, "$" +contractProductDTO.getPrice());
+                    setTableRowCell(productDetailsTable, contractProductDTO.getProductType());
+                    setTableRowCell(productDetailsTable, contractProductDTO.getServiceId());
+                    setTableRowCell(productDetailsTable, "" + contractProductDTO.getCommitment() + " Months");
+                    setTableRowCell(productDetailsTable, contractProductDTO.getName());
+                    setTableRowCell(productDetailsTable, contractProductDTO.getDevice());
+                    setTableRowCell(productDetailsTable, "$" +contractProductDTO.getPrice());
+
+                    Set<ContractVaseDTO> contractVaseDTOs = contractProductDTO.getVases();
+                    if (contractVaseDTOs.size() > 0) {
+                        contractVaseDTOs.stream().forEach(vaseDTO -> {
+                            setTableRowCell(addedServiceTable, contractProductDTO.getServiceId());
+                            setTableRowCell(addedServiceTable, vaseDTO.getVas());
+                        });
+
+                    }
                 });
 
             } else {
-                setTableRowCell(table, null);
-                setTableRowCell(table, null);
-                setTableRowCell(table, null);
-                setTableRowCell(table, null);
-                setTableRowCell(table, null);
-                setTableRowCell(table, null);
+                setTableRowCell(productDetailsTable, null);
+                setTableRowCell(productDetailsTable, null);
+                setTableRowCell(productDetailsTable, null);
+                setTableRowCell(productDetailsTable, null);
+                setTableRowCell(productDetailsTable, null);
+                setTableRowCell(productDetailsTable, null);
             }
+
 
             Font serviceContractFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 20, Font.BOLD);
             Font customerInfFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 15, Font.NORMAL);
@@ -86,9 +105,14 @@ public class ServiceContractGenerator {
             document.add((new Phrase("Customer name: " + basketDTO.getCustomerInfo().getName(), customerInfFont)));
             document.add(Chunk.NEWLINE);
             document.add(new Phrase("Customer Document ID: " + basketDTO.getCustomerInfo().getDocId(), customerInfFont));
+
             document.add(Chunk.NEWLINE);
             document.add(new Phrase("Product Details" , customerInfFont));
-            document.add(table);
+            document.add(productDetailsTable);
+
+            document.add(Chunk.NEWLINE);
+            document.add(new Phrase("Value Added Services" , customerInfFont));
+            document.add(addedServiceTable);
 
 
             document.close();
@@ -105,6 +129,7 @@ public class ServiceContractGenerator {
         PdfPCell hcell;
         hcell = new PdfPCell(new Phrase(header, headFont));
         hcell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        hcell.setVerticalAlignment(Element.ALIGN_CENTER);
         table.addCell(hcell);
     }
 
