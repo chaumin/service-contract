@@ -123,7 +123,7 @@ This api will receive the Customer inforamtion and card detail to generate the c
 > ```
 
 ###### Sequence Diagram
-![](./recource/api_post_service_contract.png)
+![](resource/api_post_service_contract.png)
                     
 ```seq
 Andrew->China: Says Hello 
