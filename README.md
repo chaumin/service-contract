@@ -56,6 +56,7 @@ Please refer to Simplified Contract specification -  SR1234568Q, project code P0
  ##### End point 1: Generate Contract
  ###### API
 This api will receive the Customer inforamtion and card detail to generate the contract
+
 | Field | Data type |
 | ----- | --------- |
 | URL | /service-contract |
